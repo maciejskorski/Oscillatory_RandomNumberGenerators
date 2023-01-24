@@ -4,11 +4,11 @@ import mpmath as mpm
 def jtheta3(z,q):
     """
         Jacobi Theta-3 function.
-        The scaling convention follows the definition in Abramowitz, M. & Stegun, I. A. (1964), "Handbook of Mathematical Functions... ".
+        The scaling convention follows the NIST definition (dlmf.nist.gov) and Abramowitz, M. & Stegun, I. A. (1964), "Handbook of Mathematical Functions... ".
     """
     def jtheta3_fn(z,q):
         jtheta3_fn = lambda z,q: mpm.jtheta(n=3,z=z,q=q)
-        jtheta3_fn = np.vectorize(jtheta3_fn,otypes=(float,))
+        jtheta3_fn = np.vectorize(jtheta3_fn,otypes=(np.cfloat,))
         return jtheta3_fn(z,q)
     
     return jtheta3_fn(z,q)

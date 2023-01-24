@@ -4,10 +4,24 @@ from scipy.stats import multivariate_normal
 from scipy.special import logsumexp
 
 
+def test_jtheta3():
+    """Test the implementation of 3rd theta function"""
+    from oscillatory_trng.functions import jtheta3
+    import mpmath as mp
+    # try a complex z-zero of theta function, cf dlmf.nist.gov
+    sigma = 0.25
+    q =np.exp(-2*np.pi**2*sigma**2)
+    z0 = np.pi*(1/2+1/2*2*np.pi*sigma**2*1j)
+    val_formula = jtheta3(z0,q)
+    val_true = 0
+
+    np.testing.assert_almost_equal(val_true, val_formula)
+
+
+
 def test_1d_probability():
     """Test the formula expressing normal distribution modulo 1 in terms of Jacobi theta function."""
     from oscillatory_trng.functions import jtheta3
-
     # try example values
     sigma = 0.25
     mu = 0.1
