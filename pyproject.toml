@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oscillatory_trng"
+version = "0.0.1"
+authors = [
+  { name="Maciej Skorski", email="maciej.skorski@gmail.com" },
+]
+readme = "README.md"
+requires-python = ">=3.7"
