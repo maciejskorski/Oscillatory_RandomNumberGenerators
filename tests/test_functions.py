@@ -40,7 +40,7 @@ def test_1d_probability():
 
 def test_browian_mod1_logp():
     """Test the formula for finite-dimentional probability of Brownian motion modulo 1"""
-    from oscillatory_trng.functions import browian_mod1_logp
+    from oscillatory_trng.functions import brownian_mod1_logp
 
     # try example values
     sigma = 0.25
@@ -55,6 +55,6 @@ def test_browian_mod1_logp():
     ks = np.stack(ks, axis=-1)  # (N,N,N,3)
     logp_true = logsumexp(dist.logpdf(y + ks))
 
-    logp_formula = browian_mod1_logp(mu, sigma, t, y)
+    logp_formula = brownian_mod1_logp(mu, sigma, t, y)
 
     np.testing.assert_almost_equal(logp_true, logp_formula)

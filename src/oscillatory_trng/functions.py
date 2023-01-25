@@ -14,7 +14,7 @@ def jtheta3(z,q):
     return jtheta3_fn(z,q)
 
 
-def browian_mod1_logp(mu,sigma,t,y):
+def brownian_mod1_logp(mu,sigma,t,y):
     """Evaluate the log-probability of the Brownian motion modulo 1.
     Args:
         mu: drift parameter of the Brownian motion
