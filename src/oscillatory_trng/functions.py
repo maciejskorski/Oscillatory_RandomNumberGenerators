@@ -22,9 +22,11 @@ def brownian_mod1_logp(mu,sigma,t,y):
         t: 1-D array of time points; non-decreasing and positive
         y: array of points to evaluate density; values between 0 and 1, first dimension matches the length of t.
     """
-    t_diff = np.diff(np.append(0,t))
     pads_dim = [(1,0)]+(len(y.shape)-1)*[(0,0)]
+    t = np.expand_dims(t,list(np.arange(1,len(y.shape))))
+    t = np.pad(t,pads_dim,mode='constant')
     y = np.pad(y,pads_dim,mode='constant')
+    t_diff = np.diff(t,axis=0)
     y_diff = np.diff(y,axis=0)
     z = np.pi*(y_diff-mu*t_diff)
     q = np.exp(-2*np.pi**2*t_diff*sigma**2)
